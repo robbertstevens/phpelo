@@ -1,0 +1,20 @@
+{
+    "name": "robbertstevens/phpelo",
+    "description": "A library to calculate elo and elo changes",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Robbert Stevens",
+            "email": "robbert@techtribe.nl"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^8.3"
+    },
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Elo\\": "src//"
+        }
+    }
+}
