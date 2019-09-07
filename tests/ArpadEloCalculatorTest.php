@@ -16,17 +16,17 @@ final class ArpadEloCalculatorTest extends TestCase
     public function test_elo_prediction(int $eloA, int $eloB, int $expected)
     {
         $calculator = new ArpadEloCalculator();
-        $this->assertEquals($expected, $calculator->calculatorExpectedResult($eloA, $eloB));
+        $this->assertEquals($expected, $calculator->calculateExpectedOutcomePercentage($eloA, $eloB));
     }
 
     public function dpCalculateEstimatedWinningPercentage()
     {
         return [
             "1500, 1500" => [1500, 1500, 50],
-            "200, 100" => [200, 100, 36],
-            "200, 100" => [100, 200, 64],
-            "2000, 1500" => [2000, 1500, 5],
-            "1500, 2000" => [1500, 2000, 95],
+            "200, 100" => [200, 100, 64],
+            "100, 200" => [100, 200, 36],
+            "2000, 1500" => [2000, 1500, 95],
+            "1500, 2000" => [1500, 2000, 5],
         ];
     }
 }

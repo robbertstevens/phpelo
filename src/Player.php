@@ -4,7 +4,7 @@
 namespace Elo;
 
 
-class Player
+class Player implements EloInterface
 {
     /**
      * @var int
@@ -27,24 +27,5 @@ class Player
     public function getElo(): int
     {
         return $this->elo;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPredictedResult()
-    {
-        return $this->predictedResult;
-    }
-
-    /**
-     * @param int $predictedResult
-     * @return Player
-     */
-    public function setPredictedResult($predictedResult): self
-    {
-        $this->predictedResult = $predictedResult;
-
-        return $this;
     }
 }

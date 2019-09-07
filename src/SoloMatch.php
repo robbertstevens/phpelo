@@ -18,7 +18,7 @@ class SoloMatch {
      */
     private $calculator;
 
-    public function __construct(Player $a, Player $b)
+    public function __construct(EloInterface $a, EloInterface $b)
     {
         $this->a = $a;
         $this->b = $b;
@@ -30,7 +30,7 @@ class SoloMatch {
         $eloA = $this->getA()->getElo();
         $eloB = $this->getB()->getElo();
 
-        return $this->calculator->calculatorExpectedResult($eloA, $eloB);
+        return $this->calculator->calculateExpectedOutcomePercentage($eloA, $eloB);
     }
 
     /**
@@ -47,5 +47,15 @@ class SoloMatch {
     public function getB(): Player
     {
         return $this->b;
+    }
+
+    public function calculateEloForPlayerA(int $result)
+    {
+        return $this->calculator->calculateNewEloRating($this->getA()->getElo(), $this->getB()->getElo(), $result);
+    }
+
+    public function calculateEloForPlayerB(int $result)
+    {
+        return $this->calculator->calculateNewEloRating($this->getB()->getElo(), $this->getA()->getElo(), $result);
     }
 }

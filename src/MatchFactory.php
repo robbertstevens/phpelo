@@ -4,7 +4,7 @@ namespace Elo;
 
 class MatchFactory
 {
-    public static function createFromObjects(Player $a, Player $b)
+    public static function createFromObjects(EloInterface $a, EloInterface $b)
     {
         return new SoloMatch($a, $b);
     }
